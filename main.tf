@@ -25,9 +25,9 @@ variable "users" {
   type = list(string)
 
   default = [
-    "anvandare01",
-    "anvandare02",
-    "anvandare03"
+    "testuser01",
+    "testuser02",
+    "testuser03"
   ]
 }
 
