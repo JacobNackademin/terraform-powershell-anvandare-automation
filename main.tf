@@ -1,6 +1,5 @@
 #Terraform-konfiguration
-#Anger vilka providers projektet behöver.
-
+#Anger vilka providers projektet behöver
 
 
 terraform {
@@ -12,8 +11,9 @@ terraform {
   }
 }
 
+
 # Aktiverar local providern
-# Används för att skapa och hantera lokala filer.
+# Används för att skapa och hantera lokala filer
 provider "local" {}
 
 
@@ -28,4 +28,18 @@ variable "users" {
     "anvandare02",
     "anvandare03"
   ]
+}
+
+
+#Användarkonfiguration
+#Skapar en JSON-fil med användarnamnen
+#Powershell kommer använda sig av denna fil
+
+resource "local_file" "user_config" {
+  filename = "${path.module}/users.json"
+
+  # jsonencode omvandlar vår lista till JSON-format.
+  content = jsonencode({
+    users = var.users
+  })
 }
