@@ -1,6 +1,7 @@
 #Terraform-konfiguration
 #Anger vilka providers projektet behöver
 
+
 terraform {
   required_providers {
     local = {
@@ -11,8 +12,8 @@ terraform {
 }
 
 
-# Aktiverar local providern
-# Används för att skapa och hantera lokala filer
+#Aktiverar local providern
+#Används för att skapa och hantera lokala filer
 
 provider "local" {}
 
@@ -71,8 +72,7 @@ resource "terraform_data" "run_powershell" {
     local_file.project_manifest
   ]
 
-  # Kör om resursen om användarkonfigurationen
-  # eller PowerShell-skriptet har ändrats
+  #Kör om resursen om användarkonfigurationen eller PowerShell-skriptet har ändrats
   
   triggers_replace = [
     local_file.user_config.content,
@@ -91,7 +91,8 @@ resource "terraform_data" "run_powershell" {
 #Outputs
 #Visar information efter terraform körts
 
-# Visar vilka användare som finns i konfigurationen.
+#Visar vilka användare som finns i konfigurationen.
+
 output "configured_users" {
   description = "Användare som ska hanteras av projektet"
   value       = var.users
