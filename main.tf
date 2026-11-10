@@ -11,3 +11,21 @@ terraform {
     }
   }
 }
+
+# Aktiverar local providern
+# Används för att skapa och hantera lokala filer.
+provider "local" {}
+
+
+#VARIABLER
+#Ange vilka användare som ska skapas i denna lista
+
+variable "users" {
+  type = list(string)
+
+  default = [
+    "testuser01",
+    "testuser02",
+    "testuser03"
+  ]
+}
